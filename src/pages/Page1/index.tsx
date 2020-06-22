@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./style.scss";
 import { setTitle } from "../../common/utils";
+import appStore from "../../store/appStore";
 
 const Page1: React.FC = () => {
-  setTitle("Page1");
+  useEffect(() => {
+    setTitle("Page1");
+    appStore.setName("Page1");
+  }, []);
 
   return (
     <div className="page-root">
