@@ -1,0 +1,45 @@
+{
+  "name": "react-parcel-demo",
+  "version": "1.0.0",
+  "description": "demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel serve ./index.html --open",
+    "build": "parcel build ./index.html --out-dir ./bundle --detailed-report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GitHubJiKe/react-parcel-demo.git"
+  },
+  "keywords": [
+    "react",
+    "parcel",
+    "antd"
+  ],
+  "author": "PengfeiYuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GitHubJiKe/react-parcel-demo/issues"
+  },
+  "homepage": "https://github.com/GitHubJiKe/react-parcel-demo#readme",
+  "dependencies": {
+    "@types/react": "^16.9.38",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router": "^5.1.7",
+    "@types/react-router-dom": "^5.1.5",
+    "antd": "^4.3.5",
+    "components": "^0.1.0",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.2.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "src": "^1.1.2"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.8",
+    "typescript": "^3.9.5"
+  }
+}
