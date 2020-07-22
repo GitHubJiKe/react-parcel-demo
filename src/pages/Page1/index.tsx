@@ -5,6 +5,7 @@ import { setTitle } from "../../common/utils";
 import appStore, { ToDO } from "../../store/appStore";
 import { Input, Row, Col, Button } from "antd";
 import ToDoList from "../../components/ToDoList";
+import classnames from "classnames";
 
 const Page1: React.FC = () => {
   const [text, setText] = useState("");
@@ -18,9 +19,9 @@ const Page1: React.FC = () => {
     appStore.addToDo(new ToDO(text));
     setText("");
   };
-
+  const className = undefined;
   return (
-    <div className="page-root">
+    <div className={classnames("page-root", className)}>
       <Row justify="center">
         <Col span={10}>
           <Input

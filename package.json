@@ -23,11 +23,13 @@
   },
   "homepage": "https://github.com/GitHubJiKe/react-parcel-demo#readme",
   "dependencies": {
+    "@types/classnames": "^2.2.10",
     "@types/react": "^16.9.38",
     "@types/react-dom": "^16.9.8",
     "@types/react-router": "^5.1.7",
     "@types/react-router-dom": "^5.1.5",
     "antd": "^4.3.5",
+    "classnames": "^2.2.6",
     "components": "^0.1.0",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
