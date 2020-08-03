@@ -29,7 +29,7 @@ class AppStore {
     this.todos.splice(removeIdx, 1);
   }
 
-  @action toodleToDo(id: number) {
+  @action toggleToDo(id: number) {
     const todo = this.todos.find((todo) => todo.id === id);
     if (todo) {
       todo.done = !todo.done;

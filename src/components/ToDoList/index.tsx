@@ -1,46 +1,46 @@
-import React, { useCallback } from "react";
-import appStore, { ToDO } from "../../store/appStore";
-import { Checkbox, Empty } from "antd";
-import { useObserver } from "mobx-react";
-import "./style.scss";
+import React, { useCallback } from 'react';
+import appStore, { ToDO } from '../../store/appStore';
+import { Checkbox, Empty } from 'antd';
+import { useObserver } from 'mobx-react';
+import './style.scss';
 
 interface IToDoListProps {
-  type?: "all" | "done" | "undone";
+  type?: 'all' | 'done' | 'undone';
 }
 
 const ToDoItem = ({
   todo,
-  onClick,
+  onClick
 }: {
   todo: ToDO;
   onClick(id: number): void;
 }) => {
-  return (
+  return useObserver(() => (
     <li
       className="todo-item"
       key={todo.id}
-      style={{ textDecoration: todo.done ? "line-through" : "" }}
-      onClick={() =>onClick(todo.id)}
+      style={{ textDecoration: todo.done ? 'line-through' : '' }}
+      onClick={() => onClick(todo.id)}
     >
       {todo.text}
       <Checkbox checked={todo.done}></Checkbox>
     </li>
-  );
+  ));
 };
 
-const ToDoList: React.FC<IToDoListProps> = ({ type = "all" }) => {
+const ToDoList: React.FC<IToDoListProps> = ({ type = 'all' }) => {
   let todos = appStore.todos;
 
-  if (type === "done") {
+  if (type === 'done') {
     todos = appStore.todos.filter((v) => v.done);
   }
 
-  if (type === "undone") {
+  if (type === 'undone') {
     todos = appStore.todos.filter((v) => !v.done);
   }
 
   const toggleToDo = useCallback((id) => {
-    appStore.toodleToDo(id);
+    appStore.toggleToDo(id);
   }, []);
 
   return useObserver(() => (

@@ -1,29 +1,60 @@
-import React from "react";
-import Pages from "./pages";
-import { Layout } from "antd";
-import { observer } from "mobx-react";
-import MyHeader from "./components/MyHeader";
-import MyFooter from "./components/MyFooter";
-import appStore from "./store/appStore";
+import React, { CSSProperties } from "react";
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper.scss";
+import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
+import "swiper/components/scrollbar/scrollbar.scss";
 
-const { Header, Content, Footer } = Layout;
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
-const App = observer(() => {
+const swiperStyle: CSSProperties = {
+  height: "100%",
+  position: "absolute",
+  width: "100%",
+  backgroundColor: "#f20c00",
+  color: "#fff143",
+  fontWeight: 700,
+  fontSize: 40,
+};
+
+export default function App() {
   return (
-    <Layout
-      style={{ display: "flex", flexDirection: "column", height: "100%" }}
-    >
-      <Header>
-        <MyHeader title={appStore.name} />
-      </Header>
-      <Content style={{ flex: 1 }}>
-        <Pages />
-      </Content>
-      <MyFooter>
-        <Footer>app</Footer>
-      </MyFooter>
-    </Layout>
+    <div>
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log("slide change")}
+        style={swiperStyle}
+        direction="vertical"
+      >
+        <SwiperSlide style={{ height: "100%" }}>
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            onSwiper={(swiper) => console.log(swiper)}
+            onSlideChange={() => console.log("slide change")}
+            style={swiperStyle}
+          >
+            <SwiperSlide
+              style={{
+                height: "100%",
+              }}
+            >
+              1.1
+            </SwiperSlide>
+            <SwiperSlide style={{ height: "100%" }}>1.2</SwiperSlide>
+            <SwiperSlide style={{ height: "100%" }}>1.3</SwiperSlide>
+            <SwiperSlide style={{ height: "100%" }}>1.4</SwiperSlide>
+          </Swiper>
+        </SwiperSlide>
+        <SwiperSlide style={{ height: "100%" }}>2</SwiperSlide>
+        <SwiperSlide style={{ height: "100%" }}>Slide 3</SwiperSlide>
+        <SwiperSlide style={{ height: "100%" }}>Slide 4</SwiperSlide>
+      </Swiper>
+    </div>
   );
-});
-
-export default App;
+}
