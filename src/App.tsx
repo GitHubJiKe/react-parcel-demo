@@ -1,19 +1,22 @@
 import React, { CSSProperties } from "react";
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  EffectFade,
+} from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
+import "swiper/swiper-bundle.css";
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 import "swiper/components/scrollbar/scrollbar.scss";
 
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, EffectFade]);
 
 const swiperStyle: CSSProperties = {
-  height: "100%",
   position: "absolute",
-  width: "100%",
-  backgroundColor: "#f20c00",
-  color: "#fff143",
   fontWeight: 700,
   fontSize: 40,
 };
@@ -22,6 +25,7 @@ export default function App() {
   return (
     <div>
       <Swiper
+        className="h-full w-full bg-red text-yellow"
         spaceBetween={50}
         slidesPerView={1}
         pagination={{ clickable: true }}
@@ -30,8 +34,9 @@ export default function App() {
         style={swiperStyle}
         direction="vertical"
       >
-        <SwiperSlide style={{ height: "100%" }}>
+        <SwiperSlide className="h-full">
           <Swiper
+            className="h-full w-full bg-red text-yellow"
             spaceBetween={50}
             slidesPerView={1}
             pagination={{ clickable: true }}
@@ -41,19 +46,25 @@ export default function App() {
           >
             <SwiperSlide
               style={{
-                height: "100%",
+                backgroundImage: `url(https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)`,
               }}
             >
-              1.1
+              Slide 1.1
             </SwiperSlide>
-            <SwiperSlide style={{ height: "100%" }}>1.2</SwiperSlide>
-            <SwiperSlide style={{ height: "100%" }}>1.3</SwiperSlide>
-            <SwiperSlide style={{ height: "100%" }}>1.4</SwiperSlide>
+            <SwiperSlide
+              style={{
+                backgroundImage: `url(https://images.unsplash.com/photo-1593642703055-4b72c180d9b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)`,
+              }}
+            >
+              Slide 1.2
+            </SwiperSlide>
+            <SwiperSlide>Slide 1.3</SwiperSlide>
+            <SwiperSlide>Slide 1.4</SwiperSlide>
           </Swiper>
         </SwiperSlide>
-        <SwiperSlide style={{ height: "100%" }}>2</SwiperSlide>
-        <SwiperSlide style={{ height: "100%" }}>Slide 3</SwiperSlide>
-        <SwiperSlide style={{ height: "100%" }}>Slide 4</SwiperSlide>
+        <SwiperSlide className="h-full">Slide 2</SwiperSlide>
+        <SwiperSlide className="h-full">Slide 3</SwiperSlide>
+        <SwiperSlide className="h-full">Slide 4</SwiperSlide>
       </Swiper>
     </div>
   );
